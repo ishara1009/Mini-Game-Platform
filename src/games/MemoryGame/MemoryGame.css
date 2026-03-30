@@ -145,6 +145,80 @@
   box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
 }
 
+.game-intro {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(236, 72, 153, 0.15));
+  border: 2px solid rgba(236, 72, 153, 0.4);
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 600px;
+  margin: 20px auto;
+  backdrop-filter: blur(10px);
+}
+
+.intro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.intro-header h3 {
+  color: #fbbf24;
+  font-size: 1.3em;
+  margin: 0;
+  font-weight: 600;
+}
+
+.intro-close {
+  background: none;
+  border: none;
+  color: #ec4899;
+  font-size: 1.8em;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.intro-close:hover {
+  transform: rotate(90deg);
+  color: #f472b6;
+}
+
+.intro-content {
+  color: #d1d5db;
+  line-height: 1.6;
+  font-size: 0.95em;
+}
+
+.intro-content p {
+  margin: 12px 0;
+}
+
+.intro-content strong {
+  color: #ec4899;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .game-intro {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .intro-header h3 {
+    font-size: 1.1em;
+  }
+
+  .intro-content {
+    font-size: 0.85em;
+  }
+}
+
 .game-stats {
   display: flex;
   gap: 40px;

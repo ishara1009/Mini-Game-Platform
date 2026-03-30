@@ -9,6 +9,7 @@ const Game2048 = () => {
   const [gameOver, setGameOver] = useState(false);
   const [won, setWon] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const { updateScore } = useContext(ScoreContext);
 
   useEffect(() => {
@@ -254,6 +255,30 @@ const Game2048 = () => {
             >
               Close
             </motion.button>
+          </div>
+        </motion.div>
+      )}
+
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="game-intro"
+        >
+          <div className="intro-header">
+            <h3>About This Game</h3>
+            <button
+              className="intro-close"
+              onClick={() => setShowIntro(false)}
+            >
+              ×
+            </button>
+          </div>
+          <div className="intro-content">
+            <p><strong>Objective:</strong> Combine tiles to create the 2048 tile and reach the highest score possible. This mathematical puzzle challenges your strategy and planning!</p>
+            <p><strong>How to Play:</strong> Use arrow keys or swipe to move tiles. Tiles with the same number combine when they touch. A new tile appears after each move. Work towards creating higher numbers and reaching 2048.</p>
+            <p><strong>Tips:</strong> Plan several moves ahead. Keep one corner strategically empty. Build larger numbers before testing risky moves. Focus on creating high-value tiles in unused areas!</p>
           </div>
         </motion.div>
       )}

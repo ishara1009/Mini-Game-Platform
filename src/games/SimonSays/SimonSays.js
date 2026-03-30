@@ -12,6 +12,7 @@ const SimonSays = () => {
   const [gameOver, setGameOver] = useState(false);
   const [activeColor, setActiveColor] = useState(null);
   const [showHelp, setShowHelp] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const { updateScore } = useContext(ScoreContext);
 
   const colorMap = {
@@ -156,6 +157,30 @@ const SimonSays = () => {
             >
               Close
             </motion.button>
+          </div>
+        </motion.div>
+      )}
+
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="game-intro"
+        >
+          <div className="intro-header">
+            <h3>About This Game</h3>
+            <button
+              className="intro-close"
+              onClick={() => setShowIntro(false)}
+            >
+              ×
+            </button>
+          </div>
+          <div className="intro-content">
+            <p><strong>Objective:</strong> Follow the pattern of colored lights as it gets longer and longer. Test your memory and reaction time in this classic memory game!</p>
+            <p><strong>How to Play:</strong> Click Start to begin. Watch the colors flash in order. Then repeat the sequence by clicking the colored buttons in the same order. Each round adds one more flash to the sequence. Can you remember them all?</p>
+            <p><strong>Tips:</strong> Pay close attention to the order and timing of flashes. Start slowly and increase speed. Say the color order out loud to help remember. Practice to beat higher levels!</p>\
           </div>
         </motion.div>
       )}

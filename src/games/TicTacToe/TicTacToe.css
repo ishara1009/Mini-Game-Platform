@@ -145,6 +145,63 @@
   box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
 }
 
+.game-intro {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  border: 2px solid rgba(124, 58, 237, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.intro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.intro-header h3 {
+  font-size: 1.2rem;
+  color: #fbbf24;
+  margin: 0;
+  font-weight: 600;
+}
+
+.intro-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.intro-close:hover {
+  color: #ec4899;
+  transform: scale(1.2);
+}
+
+.intro-content {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.intro-content p {
+  margin: 8px 0;
+}
+
+.intro-content strong {
+  color: #ec4899;
+}
+
 .game-info {
   text-align: center;
   min-height: 50px;

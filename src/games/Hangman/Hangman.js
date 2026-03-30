@@ -11,6 +11,7 @@ const Hangman = () => {
   const [gameOver, setGameOver] = useState(false);
   const [won, setWon] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const { updateScore } = useContext(ScoreContext);
 
   const maxWrongGuesses = 6;
@@ -143,6 +144,30 @@ const Hangman = () => {
             >
               Close
             </motion.button>
+          </div>
+        </motion.div>
+      )}
+
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="game-intro"
+        >
+          <div className="intro-header">
+            <h3>About This Game</h3>
+            <button
+              className="intro-close"
+              onClick={() => setShowIntro(false)}
+            >
+              ×
+            </button>
+          </div>
+          <div className="intro-content">
+            <p><strong>Objective:</strong> Guess the hidden word letter by letter before running out of wrong guesses. Uncover the word to win!</p>
+            <p><strong>How to Play:</strong> Click letters to guess them. If a letter appears in the word, it will be revealed. If not, you lose one chance. You get 6 wrong guesses before game over. Try to reveal the entire word!</p>
+            <p><strong>Tips:</strong> Start with common letters like E, A, R, and O. Look for patterns in word structure. Think about categories the word might fall into. Use process of elimination wisely!</p>
           </div>
         </motion.div>
       )}

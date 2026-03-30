@@ -11,6 +11,7 @@ const MemoryGame = () => {
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const { updateScore } = useContext(ScoreContext);
 
   // Initialize game
@@ -134,6 +135,30 @@ const MemoryGame = () => {
             >
               Close
             </motion.button>
+          </div>
+        </motion.div>
+      )}
+
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="game-intro"
+        >
+          <div className="intro-header">
+            <h3>About This Game</h3>
+            <button
+              className="intro-close"
+              onClick={() => setShowIntro(false)}
+            >
+              ×
+            </button>
+          </div>
+          <div className="intro-content">
+            <p><strong>Objective:</strong> Test your memory by flipping cards and finding matching pairs. Match all pairs in the fewest moves possible!</p>
+            <p><strong>How to Play:</strong> Click a card to flip it and reveal the letter. Find two cards with matching letters. If they match, they stay flipped. If not, try again. Use your memory to recall card positions and match all 8 pairs.</p>
+            <p><strong>Tips:</strong> Start with corner cards to map the grid. Remember card positions as you flip them. Use patterns to recall locations. Focus and concentrate for your best performance!</p>
           </div>
         </motion.div>
       )}

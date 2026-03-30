@@ -9,6 +9,7 @@ const FlappyBird = () => {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [showHelp, setShowHelp] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const [canvasSize, setCanvasSize] = useState({ width: 600, height: 700 });
   const { updateScore } = useContext(ScoreContext);
 
@@ -235,6 +236,30 @@ const FlappyBird = () => {
             >
               Close
             </motion.button>
+          </div>
+        </motion.div>
+      )}
+
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="game-intro"
+        >
+          <div className="intro-header">
+            <h3>About This Game</h3>
+            <button
+              className="intro-close"
+              onClick={() => setShowIntro(false)}
+            >
+              ×
+            </button>
+          </div>
+          <div className="intro-content">
+            <p><strong>Objective:</strong> Guide your bird through pipes without hitting them. The longer you survive, the higher your score!</p>
+            <p><strong>How to Play:</strong> Click the game area or press SPACE or ENTER to make the bird flap and jump. Time your clicks to navigate through the gaps in the pipes. Avoid hitting the pipes and the ground. Each pipe you pass increases your score.</p>
+            <p><strong>Tips:</strong> Anticipate pipe positions and plan ahead. Click early to build momentum. Maintain a steady rhythm of clicks. Stay near the center of each gap for safety!</p>
           </div>
         </motion.div>
       )}

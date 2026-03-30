@@ -10,6 +10,7 @@ const RockPaperScissors = () => {
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
   const [showHelp, setShowHelp] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const { updateScore } = useContext(ScoreContext);
 
   const choices = ['Rock', 'Paper', 'Scissors'];
@@ -126,6 +127,30 @@ const RockPaperScissors = () => {
             >
               Close
             </motion.button>
+          </div>
+        </motion.div>
+      )}
+
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="game-intro"
+        >
+          <div className="intro-header">
+            <h3>About This Game</h3>
+            <button
+              className="intro-close"
+              onClick={() => setShowIntro(false)}
+            >
+              ×
+            </button>
+          </div>
+          <div className="intro-content">
+            <p><strong>Objective:</strong> Challenge the computer in a classic game of Rock, Paper, Scissors. Win as many rounds as you can by choosing the right moves!</p>
+            <p><strong>How to Play:</strong> Choose Rock, Paper, or Scissors by clicking the buttons. Rock beats Scissors, Scissors beats Paper, and Paper beats Rock. Outsmart the computer to earn points. The first to reach the target wins!</p>
+            <p><strong>Tips:</strong> The computer makes random choices, so stay unpredictable. Watch the patterns and try to anticipate the next move. Balance your choices to keep the computer guessing!</p>
           </div>
         </motion.div>
       )}

@@ -11,6 +11,7 @@ const NumberGuessingGame = () => {
   const [gameOver, setGameOver] = useState(false);
   const [guesses, setGuesses] = useState([]);
   const [showHelp, setShowHelp] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const { updateScore } = useContext(ScoreContext);
 
   useEffect(() => {
@@ -126,6 +127,30 @@ const NumberGuessingGame = () => {
             >
               Close
             </motion.button>
+          </div>
+        </motion.div>
+      )}
+
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="game-intro"
+        >
+          <div className="intro-header">
+            <h3>About This Game</h3>
+            <button
+              className="intro-close"
+              onClick={() => setShowIntro(false)}
+            >
+              ×
+            </button>
+          </div>
+          <div className="intro-content">
+            <p><strong>Objective:</strong> Guess a secret number between 1 and 100. Use the hints provided to narrow down the correct number in as few attempts as possible!</p>
+            <p><strong>How to Play:</strong> Type a number and submit your guess. The game will tell you if your guess is too high, too low, or correct. Keep guessing until you find the secret number.</p>
+            <p><strong>Tips:</strong> Start with a number in the middle (around 50) to eliminate half the possibilities. Use the hints to adjust your next guess. Fewer attempts mean a better score!</p>
           </div>
         </motion.div>
       )}

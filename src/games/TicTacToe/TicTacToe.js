@@ -8,6 +8,7 @@ const TicTacToe = () => {
   const [isXNext, setIsXNext] = useState(true);
   const [winnerStats, setWinnerStats] = useState(null);
   const [showHelp, setShowHelp] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const { updateScore } = useContext(ScoreContext);
 
   const calculateWinner = (squares) => {
@@ -150,6 +151,25 @@ const TicTacToe = () => {
             >
               Close
             </motion.button>
+          </div>
+        </motion.div>
+      )}
+
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="game-intro"
+        >
+          <div className="intro-header">
+            <h3>About This Game</h3>
+            <button className="intro-close" onClick={() => setShowIntro(false)}>×</button>
+          </div>
+          <div className="intro-content">
+            <p><strong>Objective:</strong> A classic 2-player strategy game where you try to get three of your marks (X or O) in a row.</p>
+            <p><strong>How to Play:</strong> Click empty squares to place your mark. Player 1 is X, Player 2 is O. Get three in a row (horizontal, vertical, or diagonal) to win!</p>
+            <p><strong>Tips:</strong> Control the center and corners for strategic advantage. Block your opponent's potential winning moves.</p>
           </div>
         </motion.div>
       )}
