@@ -15,6 +15,12 @@ A modern, responsive mini game platform built with React.js, featuring interacti
 
 - **Tic Tac Toe**: Classic 2-player strategy game with winner detection and board highlighting
 - **Memory Game**: Test your memory by matching pairs of cards
+- **Flappy Bird**: Navigate through obstacles in this addictive endless game
+- **2048**: Merge numbered tiles to reach the 2048 tile and discover higher scores
+- **Hangman**: Guess the word before running out of attempts
+- **Number Guessing Game**: Try to guess the random number within a limited range
+- **Rock Paper Scissors**: Play the classic game against the computer
+- **Simon Says**: Repeat the sequence of colored lights to progress through levels
 
 ## Features
 
