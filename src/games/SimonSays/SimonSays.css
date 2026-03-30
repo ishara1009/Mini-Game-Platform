@@ -1,0 +1,140 @@
+.simon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 30px;
+  gap: 30px;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.level-display {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fbbf24;
+  padding: 12px 24px;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 8px;
+  border: 2px solid rgba(124, 58, 237, 0.3);
+}
+
+.game-over-message {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.simon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  gap: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  border: 2px solid rgba(124, 58, 237, 0.2);
+}
+
+.simon-button {
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.simon-button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.simon-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.simon-button.active {
+  animation: pulse 0.3s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    filter: brightness(1.5);
+    box-shadow: 0 0 30px currentColor;
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+.simon-button.red {
+  background: #ef4444;
+}
+
+.simon-button.blue {
+  background: #3b82f6;
+}
+
+.simon-button.green {
+  background: #10b981;
+}
+
+.simon-button.yellow {
+  background: #fbbf24;
+}
+
+.start-button {
+  padding: 12px 40px;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.start-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+}
+
+.start-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .simon-container {
+    padding: 20px;
+  }
+
+  .game-title {
+    font-size: 1.8rem;
+  }
+
+  .simon-grid {
+    grid-template-columns: repeat(2, 100px);
+    gap: 15px;
+  }
+
+  .simon-button {
+    width: 100px;
+    height: 100px;
+  }
+}

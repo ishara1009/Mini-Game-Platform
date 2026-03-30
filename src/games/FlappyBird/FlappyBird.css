@@ -1,0 +1,95 @@
+.flappy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 30px;
+  gap: 20px;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.score-display {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fbbf24;
+  padding: 12px 24px;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 8px;
+  border: 2px solid rgba(124, 58, 237, 0.3);
+}
+
+.game-over-message {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.game-canvas {
+  border: 3px solid rgba(124, 58, 237, 0.5);
+  border-radius: 10px;
+  background: #1a1a2e;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+  max-width: 100%;
+  height: auto;
+}
+
+.instructions {
+  color: #999;
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0;
+}
+
+.start-button {
+  padding: 12px 40px;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.start-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+}
+
+.start-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .flappy-container {
+    padding: 20px;
+  }
+
+  .game-title {
+    font-size: 1.8rem;
+  }
+
+  .game-canvas {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+}

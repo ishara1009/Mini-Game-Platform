@@ -6,6 +6,12 @@ export const ScoreProvider = ({ children }) => {
   const [scores, setScores] = useState({
     ticTacToe: 0,
     memoryGame: 0,
+    rockPaperScissors: 0,
+    numberGuessingGame: 0,
+    hangman: 0,
+    simonSays: 0,
+    game2048: 0,
+    flappyBird: 0,
     totalGames: 0,
   });
 
@@ -34,6 +40,12 @@ export const ScoreProvider = ({ children }) => {
     const emptyScores = {
       ticTacToe: 0,
       memoryGame: 0,
+      rockPaperScissors: 0,
+      numberGuessingGame: 0,
+      hangman: 0,
+      simonSays: 0,
+      game2048: 0,
+      flappyBird: 0,
       totalGames: 0,
     };
     setScores(emptyScores);

@@ -1,0 +1,234 @@
+.game-2048-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 30px;
+  gap: 20px;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.game-info {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.score-box {
+  background: rgba(124, 58, 237, 0.1);
+  border: 2px solid rgba(124, 58, 237, 0.3);
+  border-radius: 8px;
+  padding: 15px 30px;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.score-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-top: 5px;
+}
+
+.win-message {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.game-over-message {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.game-grid-2048 {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 10px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 2px solid rgba(124, 58, 237, 0.2);
+}
+
+.tile {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(124, 58, 237, 0.2);
+  position: relative;
+}
+
+.tile-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.tile-2 {
+  background: linear-gradient(135deg, #eee6dd 0%, #ede0c8 100%);
+}
+
+.tile-2 .tile-value {
+  color: #776e65;
+}
+
+.tile-4 {
+  background: linear-gradient(135deg, #ede0c8 0%, #f2d4a4 100%);
+}
+
+.tile-4 .tile-value {
+  color: #776e65;
+}
+
+.tile-8 {
+  background: linear-gradient(135deg, #f2b179 0%, #f59563 100%);
+}
+
+.tile-8 .tile-value {
+  color: #f9f6f2;
+}
+
+.tile-16 {
+  background: linear-gradient(135deg, #f59563 0%, #f67c5f 100%);
+}
+
+.tile-16 .tile-value {
+  color: #f9f6f2;
+}
+
+.tile-32 {
+  background: linear-gradient(135deg, #f67c5f 0%, #f65e3b 100%);
+}
+
+.tile-32 .tile-value {
+  color: #f9f6f2;
+}
+
+.tile-64 {
+  background: linear-gradient(135deg, #f65e3b 0%, #edcf72 100%);
+}
+
+.tile-64 .tile-value {
+  color: #f9f6f2;
+}
+
+.tile-128 {
+  background: linear-gradient(135deg, #edcf72 0%, #edcc61 100%);
+}
+
+.tile-128 .tile-value {
+  color: #776e65;
+  font-size: 1.4rem;
+}
+
+.tile-256 {
+  background: linear-gradient(135deg, #edcc61 0%, #edc22e 100%);
+}
+
+.tile-256 .tile-value {
+  color: #776e65;
+  font-size: 1.4rem;
+}
+
+.tile-512 {
+  background: linear-gradient(135deg, #edc22e 0%, #3c3c2f 100%);
+}
+
+.tile-512 .tile-value {
+  color: #f9f6f2;
+  font-size: 1.4rem;
+}
+
+.tile-1024 {
+  background: linear-gradient(135deg, #3c3c2f 0%, #3c3c22 100%);
+}
+
+.tile-1024 .tile-value {
+  color: #f9f6f2;
+  font-size: 1.2rem;
+}
+
+.tile-2048 {
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+}
+
+.tile-2048 .tile-value {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.instructions {
+  color: #999;
+  font-size: 0.95rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.start-button {
+  padding: 12px 40px;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.start-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+}
+
+@media (max-width: 768px) {
+  .game-grid-2048 {
+    grid-template-columns: repeat(4, 60px);
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .tile {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tile-value {
+    font-size: 1.3rem;
+  }
+
+  .game-title {
+    font-size: 1.8rem;
+  }
+}
