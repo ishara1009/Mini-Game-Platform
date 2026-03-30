@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { motion } from 'framer-motion';
 import GameCard from '../../components/GameCard';
 import { ScoreContext } from '../../context/ScoreContext';
@@ -6,6 +6,14 @@ import './Home.css';
 
 const Home = () => {
   const { scores, resetScores } = useContext(ScoreContext);
+  const [showResetMessage, setShowResetMessage] = useState(false);
+
+  const handleResetScores = () => {
+    resetScores();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setShowResetMessage(true);
+    setTimeout(() => setShowResetMessage(false), 3000);
+  };
 
   const games = [
     {
@@ -140,10 +148,22 @@ const Home = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="reset-button"
-        onClick={resetScores}
+        onClick={handleResetScores}
       >
         Reset Scores
       </motion.button>
+
+      {showResetMessage && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          className="reset-success-message"
+        >
+          <span className="success-icon">✓</span>
+          <span className="success-text">Successfully Reset All Scores</span>
+        </motion.div>
+      )}
     </motion.div>
   );
 };
