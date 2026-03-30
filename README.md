@@ -2,8 +2,6 @@
 
 A modern, responsive mini game platform built with React.js, featuring interactive games with smooth animations and score tracking.
 
-## Gallery
-
 ![Game 1](src/images/1.png)
 ![Game 2](src/images/2.png)
 ![Game 3](src/images/3.png)
