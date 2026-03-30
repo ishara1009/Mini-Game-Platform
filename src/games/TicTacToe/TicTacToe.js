@@ -95,10 +95,10 @@ const TicTacToe = () => {
             animate={{ scale: 1 }}
             className="winner-text"
           >
-            🎉 Player {winner.winner} Wins! 🎉
+            Player {winner.winner} Wins!
           </motion.p>
         ) : isBoardFull ? (
-          <p className="draw-text">🤝 It's a Draw!</p>
+          <p className="draw-text">It's a Draw!</p>
         ) : (
           <p className="current-player">
             Current Player: <span className="player-mark">{isXNext ? 'X' : 'O'}</span>

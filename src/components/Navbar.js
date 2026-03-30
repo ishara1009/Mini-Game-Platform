@@ -18,12 +18,12 @@ const Navbar = () => {
           to="/"
           className="text-2xl font-bold text-white hover:text-gray-200 transition-colors"
         >
-          🎮 {process.env.REACT_APP_NAME}
+          {process.env.REACT_APP_NAME}
         </Link>
 
         <div className="flex gap-8 items-center">
           <div className="text-white text-sm">
-            <p>🏆 Total Games: <span className="font-bold">{scores.totalGames}</span></p>
+            <p>Total Games: <span className="font-bold">{scores.totalGames}</span></p>
           </div>
 
           <Link

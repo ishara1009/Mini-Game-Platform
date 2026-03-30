@@ -86,7 +86,7 @@ Features:
 
 ### 2. MEMORY GAME ✅
 Features:
-- 8 emoji pairs (16 cards total)
+- 8 letter pairs (A-H, 16 cards total)
 - Flip animation with 3D perspective
 - Pair matching logic
 - Move counter

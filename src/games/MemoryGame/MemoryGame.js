@@ -4,7 +4,7 @@ import { ScoreContext } from '../../context/ScoreContext';
 import './MemoryGame.css';
 
 const MemoryGame = () => {
-  const emojis = ['🍎', '🍌', '🍉', '🍒', '🍓', '🥝', '🍑', '🍍'];
+  const emojis = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [matched, setMatched] = useState([]);
@@ -90,7 +90,7 @@ const MemoryGame = () => {
           animate={{ scale: 1 }}
           className="win-message"
         >
-          🎉 You Won! Moves: {moves} 🎉
+          You Won! Moves: {moves}
         </motion.div>
       )}
 

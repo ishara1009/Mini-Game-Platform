@@ -99,8 +99,8 @@ mini-game-platform/
 
 ### Memory Game
 1. Navigate to the Memory Game from the home page
-2. Click on cards to reveal emojis
-3. Try to match pairs of identical emojis
+2. Click on cards to reveal letters (A-H)
+3. Try to match pairs of identical letters
 4. The game tracks your moves
 5. Win by matching all pairs in the fewest moves possible
 

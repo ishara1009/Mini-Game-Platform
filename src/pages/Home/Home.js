@@ -11,14 +11,14 @@ const Home = () => {
     {
       title: 'Tic Tac Toe',
       description: '2-player strategy game. Try to get three in a row!',
-      icon: '⭕',
+      icon: 'O',
       path: '/tic-tac-toe',
       color: 'from-blue-500 to-blue-700',
     },
     {
       title: 'Memory Game',
-      description: 'Test your memory by matching pairs of emojis.',
-      icon: '🧠',
+      description: 'Test your memory by matching pairs of cards.',
+      icon: 'M',
       path: '/memory-game',
       color: 'from-purple-500 to-purple-700',
     },
@@ -46,22 +46,22 @@ const Home = () => {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="hero-subtitle"
         >
-          Choose a game and have fun! 🎮
+          Choose a game and have fun!
         </motion.p>
       </div>
 
       <div className="scores-card">
         <div className="score-item">
-          <span className="score-icon">🏆</span>
-          <span className="score-text">Total Games Played: <strong>{scores.totalGames}</strong></span>
+          <span className="score-label">Total Games Played:</span>
+          <span className="score-number">{scores.totalGames}</span>
         </div>
         <div className="score-item">
-          <span className="score-icon">⭕</span>
-          <span className="score-text">Tic Tac Toe Wins: <strong>{scores.ticTacToe}</strong></span>
+          <span className="score-label">Tic Tac Toe Wins:</span>
+          <span className="score-number">{scores.ticTacToe}</span>
         </div>
         <div className="score-item">
-          <span className="score-icon">🧠</span>
-          <span className="score-text">Memory Games Won: <strong>{scores.memoryGame}</strong></span>
+          <span className="score-label">Memory Games Won:</span>
+          <span className="score-number">{scores.memoryGame}</span>
         </div>
       </div>
 

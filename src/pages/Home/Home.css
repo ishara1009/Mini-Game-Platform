@@ -45,17 +45,15 @@
   font-size: 1.1rem;
 }
 
-.score-icon {
-  font-size: 2rem;
-}
-
-.score-text {
+.score-label {
   color: #d1d5db;
+  font-weight: 600;
 }
 
-.score-text strong {
+.score-number {
   color: #fbbf24;
   font-weight: 700;
+  font-size: 1.3rem;
 }
 
 .games-grid {
