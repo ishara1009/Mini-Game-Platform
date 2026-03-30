@@ -1,6 +1,6 @@
 # Mini Game Platform
 
-A modern, responsive mini game platform built with React.js, featuring interactive games with smooth animations and score tracking.
+Mini Game Platform is a modern web application featuring a collection of classic games including Tic Tac Toe, Memory Game, Flappy Bird, 2048, Hangman, Number Guessing Game, Rock Paper Scissors, and Simon Says. Built with React.js, it offers smooth animations, responsive design, and score tracking to provide an engaging gaming experience.
 
 ![Game 1](src/images/1.png)
 ![Game 2](src/images/2.png)
