@@ -1,0 +1,93 @@
+import React, { useContext } from 'react';
+import { motion } from 'framer-motion';
+import GameCard from '../../components/GameCard';
+import { ScoreContext } from '../../context/ScoreContext';
+import './Home.css';
+
+const Home = () => {
+  const { scores, resetScores } = useContext(ScoreContext);
+
+  const games = [
+    {
+      title: 'Tic Tac Toe',
+      description: '2-player strategy game. Try to get three in a row!',
+      icon: '⭕',
+      path: '/tic-tac-toe',
+      color: 'from-blue-500 to-blue-700',
+    },
+    {
+      title: 'Memory Game',
+      description: 'Test your memory by matching pairs of emojis.',
+      icon: '🧠',
+      path: '/memory-game',
+      color: 'from-purple-500 to-purple-700',
+    },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="home-container"
+    >
+      <div className="hero-section">
+        <motion.h1
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="hero-title"
+        >
+          Welcome to Mini Game Platform
+        </motion.h1>
+        <motion.p
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="hero-subtitle"
+        >
+          Choose a game and have fun! 🎮
+        </motion.p>
+      </div>
+
+      <div className="scores-card">
+        <div className="score-item">
+          <span className="score-icon">🏆</span>
+          <span className="score-text">Total Games Played: <strong>{scores.totalGames}</strong></span>
+        </div>
+        <div className="score-item">
+          <span className="score-icon">⭕</span>
+          <span className="score-text">Tic Tac Toe Wins: <strong>{scores.ticTacToe}</strong></span>
+        </div>
+        <div className="score-item">
+          <span className="score-icon">🧠</span>
+          <span className="score-text">Memory Games Won: <strong>{scores.memoryGame}</strong></span>
+        </div>
+      </div>
+
+      <div className="games-grid">
+        {games.map((game, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.2, duration: 0.5 }}
+          >
+            <GameCard {...game} />
+          </motion.div>
+        ))}
+      </div>
+
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="reset-button"
+        onClick={resetScores}
+      >
+        Reset Scores
+      </motion.button>
+    </motion.div>
+  );
+};
+
+export default Home;

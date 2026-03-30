@@ -1,0 +1,160 @@
+.tic-tac-toe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 30px;
+  gap: 30px;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.game-info {
+  text-align: center;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.winner-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fbbf24;
+  animation: pulse 0.5s ease-in-out;
+}
+
+.draw-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+.current-player {
+  font-size: 1.2rem;
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+.player-mark {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin: 0 5px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  padding: 20px;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 10px;
+  border: 2px solid rgba(124, 58, 237, 0.3);
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  border: 2px solid rgba(236, 72, 153, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square:hover {
+  border-color: rgba(236, 72, 153, 0.8);
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+}
+
+.square:active {
+  transform: scale(0.95);
+}
+
+.square.winning-square {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  border-color: #fcd34d;
+  animation: winning-glow 0.6s ease-in-out infinite;
+}
+
+@keyframes winning-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.8);
+  }
+}
+
+.restart-button {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.restart-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+}
+
+.restart-button:active {
+  transform: translateY(-1px);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tic-tac-toe-container {
+    padding: 20px;
+  }
+
+  .game-title {
+    font-size: 1.8rem;
+  }
+
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-gap: 8px;
+    padding: 15px;
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+  }
+}
