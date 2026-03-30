@@ -10,6 +10,7 @@ const NumberGuessingGame = () => {
   const [attempts, setAttempts] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [guesses, setGuesses] = useState([]);
+  const [showHelp, setShowHelp] = useState(false);
   const { updateScore } = useContext(ScoreContext);
 
   useEffect(() => {
@@ -61,7 +62,73 @@ const NumberGuessingGame = () => {
       transition={{ duration: 0.5 }}
       className="number-game-container"
     >
-      <h1 className="game-title">Number Guessing Game</h1>
+      <div className="game-header">
+        <h1 className="game-title">Number Guessing Game</h1>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="help-button"
+          onClick={() => setShowHelp(!showHelp)}
+        >
+          ?
+        </motion.button>
+      </div>
+
+      {showHelp && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="help-modal"
+        >
+          <div className="help-content">
+            <h2>Number Guessing Game - How to Play</h2>
+            
+            <div className="help-section">
+              <h3>About the Game</h3>
+              <p>The computer picks a secret number between 1 and 100. Your job is to guess the number in as few attempts as possible!</p>
+            </div>
+
+            <div className="help-section">
+              <h3>How to Play</h3>
+              <ul>
+                <li><strong>Enter a Number:</strong> Type a number between 1 and 100 in the input field</li>
+                <li><strong>Submit Your Guess:</strong> Click "Guess" or press Enter</li>
+                <li><strong>Read the Feedback:</strong> You'll be told if your guess is too high or too low</li>
+                <li><strong>Adjust and Guess Again:</strong> Use the hints to narrow down the number</li>
+                <li><strong>Win:</strong> Guess the exact number to win!</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Scoring & Tracking</h3>
+              <ul>
+                <li>You earn points for correct guesses</li>
+                <li>Your attempts counter shows how many tries you've used</li>
+                <li>Fewer attempts = better performance</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Tips for Guessing</h3>
+              <ul>
+                <li>✓ Start with 50 to split the range in half</li>
+                <li>✓ Use binary search strategy (halving each time)</li>
+                <li>✓ Remember previously guessed numbers</li>
+                <li>✓ Listen to the feedback carefully</li>
+              </ul>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="close-help-button"
+              onClick={() => setShowHelp(false)}
+            >
+              Close
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
 
       <div className="attempts-counter">
         Attempts: <span>{attempts}</span>

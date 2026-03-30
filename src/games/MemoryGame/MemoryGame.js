@@ -10,6 +10,7 @@ const MemoryGame = () => {
   const [matched, setMatched] = useState([]);
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
   const { updateScore } = useContext(ScoreContext);
 
   // Initialize game
@@ -69,7 +70,73 @@ const MemoryGame = () => {
       transition={{ duration: 0.5 }}
       className="memory-game-container"
     >
-      <h1 className="game-title">Memory Game</h1>
+      <div className="game-header">
+        <h1 className="game-title">Memory Game</h1>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="help-button"
+          onClick={() => setShowHelp(!showHelp)}
+        >
+          ?
+        </motion.button>
+      </div>
+
+      {showHelp && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="help-modal"
+        >
+          <div className="help-content">
+            <h2>Memory Game - How to Play</h2>
+            
+            <div className="help-section">
+              <h3>About the Game</h3>
+              <p>Test your memory by flipping cards and finding matching pairs. Match all pairs in the fewest moves possible to win!</p>
+            </div>
+
+            <div className="help-section">
+              <h3>How to Play</h3>
+              <ul>
+                <li><strong>Click a Card:</strong> Click any card to flip it and reveal the letter</li>
+                <li><strong>Find Pairs:</strong> Try to remember card positions and find matching pairs</li>
+                <li><strong>Match Letters:</strong> If two cards match, they stay flipped</li>
+                <li><strong>Unmatched Cards:</strong> If they don't match, they flip back face-down</li>
+                <li><strong>Win:</strong> Match all 8 pairs to win the game</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Scoring</h3>
+              <ul>
+                <li>You earn points based on your move efficiency</li>
+                <li>Fewer moves = better performance</li>
+                <li>Try to beat your previous best!</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Tips for Winning</h3>
+              <ul>
+                <li>✓ Remember card positions as you flip them</li>
+                <li>✓ Start with corner cards to map the grid</li>
+                <li>✓ Use patterns to remember locations</li>
+                <li>✓ Focus and concentrate for best results</li>
+              </ul>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="close-help-button"
+              onClick={() => setShowHelp(false)}
+            >
+              Close
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
 
       <div className="game-stats">
         <div className="stat">

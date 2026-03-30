@@ -11,6 +11,7 @@ const SimonSays = () => {
   const [level, setLevel] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [activeColor, setActiveColor] = useState(null);
+  const [showHelp, setShowHelp] = useState(false);
   const { updateScore } = useContext(ScoreContext);
 
   const colorMap = {
@@ -90,7 +91,74 @@ const SimonSays = () => {
       transition={{ duration: 0.5 }}
       className="simon-container"
     >
-      <h1 className="game-title">Simon Says</h1>
+      <div className="game-header">
+        <h1 className="game-title">Simon Says</h1>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="help-button"
+          onClick={() => setShowHelp(!showHelp)}
+        >
+          ?
+        </motion.button>
+      </div>
+
+      {showHelp && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="help-modal"
+        >
+          <div className="help-content">
+            <h2>Simon Says - How to Play</h2>
+            
+            <div className="help-section">
+              <h3>About the Game</h3>
+              <p>Watch Simon's color sequence and repeat it! Each level adds a new color to the sequence, making it harder and harder.</p>
+            </div>
+
+            <div className="help-section">
+              <h3>How to Play</h3>
+              <ul>
+                <li><strong>Start the Game:</strong> Click the "Start Game" button</li>
+                <li><strong>Watch the Sequence:</strong> Simon lights up a sequence of colored buttons</li>
+                <li><strong>Repeat the Sequence:</strong> Click the colors in the same order</li>
+                <li><strong>Level Up:</strong> After each correct sequence, a new color is added</li>
+                <li><strong>Challenge:</strong> Sequences get longer and more complex</li>
+                <li><strong>Game Over:</strong> You lose if you click the wrong color</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Scoring</h3>
+              <ul>
+                <li>You earn points based on the highest level reached</li>
+                <li>Each level successfully completed increases your score</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Tips for Success</h3>
+              <ul>
+                <li>✓ Pay close attention to the color sequence</li>
+                <li>✓ Remember the entire sequence from start to finish</li>
+                <li>✓ Space your clicks to match the timing</li>
+                <li>✓ Focus on patterns and groups of colors</li>
+                <li>✓ Practice to reach higher levels!</li>
+              </ul>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="close-help-button"
+              onClick={() => setShowHelp(false)}
+            >
+              Close
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
 
       <div className="level-display">Level: {level}</div>
 

@@ -9,6 +9,7 @@ const RockPaperScissors = () => {
   const [result, setResult] = useState(null);
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
+  const [showHelp, setShowHelp] = useState(false);
   const { updateScore } = useContext(ScoreContext);
 
   const choices = ['Rock', 'Paper', 'Scissors'];
@@ -60,7 +61,74 @@ const RockPaperScissors = () => {
       transition={{ duration: 0.5 }}
       className="rps-container"
     >
-      <h1 className="game-title">Rock Paper Scissors</h1>
+      <div className="game-header">
+        <h1 className="game-title">Rock Paper Scissors</h1>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="help-button"
+          onClick={() => setShowHelp(!showHelp)}
+        >
+          ?
+        </motion.button>
+      </div>
+
+      {showHelp && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="help-modal"
+        >
+          <div className="help-content">
+            <h2>Rock Paper Scissors - How to Play</h2>
+            
+            <div className="help-section">
+              <h3>About the Game</h3>
+              <p>Challenge the computer in this classic game of strategy and luck. Rock beats Scissors, Scissors beats Paper, and Paper beats Rock!</p>
+            </div>
+
+            <div className="help-section">
+              <h3>How to Play</h3>
+              <ul>
+                <li><strong>Choose Your Move:</strong> Click Rock, Paper, or Scissors</li>
+                <li><strong>Computer Plays:</strong> The computer makes its random choice</li>
+                <li><strong>Determine Winner:</strong> Based on classic game rules</li>
+                <li><strong>Score Updates:</strong> Your win count increases</li>
+                <li><strong>Play Again:</strong> Click any choice to play another round</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Winning Rules</h3>
+              <ul>
+                <li>Rock crushes Scissors → Rock wins</li>
+                <li>Scissors cuts Paper → Scissors wins</li>
+                <li>Paper covers Rock → Paper wins</li>
+                <li>Same choice = Draw (no points)</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Tips for Playing</h3>
+              <ul>
+                <li>✓ Play based on strategy or intuition</li>
+                <li>✓ Remember the winning combinations</li>
+                <li>✓ Challenge your playing patterns</li>
+                <li>✓ Have fun competing with the computer!</li>
+              </ul>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="close-help-button"
+              onClick={() => setShowHelp(false)}
+            >
+              Close
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
 
       <div className="score-board">
         <div className="score-section">

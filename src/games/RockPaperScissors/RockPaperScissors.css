@@ -8,6 +8,13 @@
   gap: 30px;
 }
 
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
 .game-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -16,6 +23,126 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
+}
+
+.help-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  transition: all 0.3s ease;
+}
+
+.help-button:hover {
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+  transform: scale(1.1);
+}
+
+.help-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.help-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+  border: 2px solid rgba(124, 58, 237, 0.4);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.help-content h2 {
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.help-section {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.help-section:last-of-type {
+  border-bottom: none;
+}
+
+.help-section h3 {
+  font-size: 1.1rem;
+  color: #fbbf24;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.help-section p {
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.help-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.help-section li {
+  color: #ccc;
+  margin-bottom: 8px;
+  padding-left: 15px;
+  line-height: 1.6;
+}
+
+.help-section li:before {
+  content: "→ ";
+  color: #ec4899;
+  font-weight: bold;
+  margin-right: 8px;
+  margin-left: -15px;
+}
+
+.close-help-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.close-help-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
 }
 
 .score-board {

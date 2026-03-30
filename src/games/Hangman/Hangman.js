@@ -10,6 +10,7 @@ const Hangman = () => {
   const [wrongGuesses, setWrongGuesses] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [won, setWon] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
   const { updateScore } = useContext(ScoreContext);
 
   const maxWrongGuesses = 6;
@@ -78,7 +79,73 @@ const Hangman = () => {
       transition={{ duration: 0.5 }}
       className="hangman-container"
     >
-      <h1 className="game-title">Hangman</h1>
+      <div className="game-header">
+        <h1 className="game-title">Hangman</h1>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="help-button"
+          onClick={() => setShowHelp(!showHelp)}
+        >
+          ?
+        </motion.button>
+      </div>
+
+      {showHelp && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="help-modal"
+        >
+          <div className="help-content">
+            <h2>Hangman - How to Play</h2>
+            
+            <div className="help-section">
+              <h3>About the Game</h3>
+              <p>Guess the hidden word letter by letter before the hangman is complete! Every wrong guess adds a part to the hangman drawing.</p>
+            </div>
+
+            <div className="help-section">
+              <h3>How to Play</h3>
+              <ul>
+                <li><strong>View the Hidden Word:</strong> See blanks representing each letter</li>
+                <li><strong>Choose Letters:</strong> Click on letters A-Z to guess</li>
+                <li><strong>Right Guesses:</strong> Correct letters appear in the word</li>
+                <li><strong>Wrong Guesses:</strong> Wrong letters build the hangman</li>
+                <li><strong>Win:</strong> Complete the word before hangman is finished</li>
+                <li><strong>Lose:</strong> Hangman completes when you make 6 wrong guesses</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Scoring</h3>
+              <ul>
+                <li>You earn points for each correct word</li>
+                <li>Successfully guessing all words is tracked</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Tips for Winning</h3>
+              <ul>
+                <li>✓ Start with common letters (E, A, R, S, T)</li>
+                <li>✓ Look for patterns in the word</li>
+                <li>✓ Avoid common wrong letters (Q, X, Z)</li>
+                <li>✓ Use word structure and common combinations</li>
+              </ul>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="close-help-button"
+              onClick={() => setShowHelp(false)}
+            >
+              Close
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
 
       <div className="hangman-content">
         <div className="hangman-display">

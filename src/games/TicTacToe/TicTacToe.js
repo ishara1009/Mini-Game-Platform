@@ -7,6 +7,7 @@ const TicTacToe = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
   const [winnerStats, setWinnerStats] = useState(null);
+  const [showHelp, setShowHelp] = useState(false);
   const { updateScore } = useContext(ScoreContext);
 
   const calculateWinner = (squares) => {
@@ -86,7 +87,72 @@ const TicTacToe = () => {
       transition={{ duration: 0.5 }}
       className="tic-tac-toe-container"
     >
-      <h1 className="game-title">Tic Tac Toe</h1>
+      <div className="game-header">
+        <h1 className="game-title">Tic Tac Toe</h1>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="help-button"
+          onClick={() => setShowHelp(!showHelp)}
+        >
+          ?
+        </motion.button>
+      </div>
+
+      {showHelp && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="help-modal"
+        >
+          <div className="help-content">
+            <h2>Tic Tac Toe - How to Play</h2>
+            
+            <div className="help-section">
+              <h3>About the Game</h3>
+              <p>A classic 2-player strategy game where you try to get three of your marks (X or O) in a row - horizontally, vertically, or diagonally - before your opponent does!</p>
+            </div>
+
+            <div className="help-section">
+              <h3>How to Play</h3>
+              <ul>
+                <li><strong>Players Take Turns:</strong> Player 1 is X, Player 2 is O</li>
+                <li><strong>Click Empty Squares:</strong> Click any empty cell on the 3x3 grid</li>
+                <li><strong>Win Condition:</strong> Get 3 marks in a row to win</li>
+                <li><strong>Draw:</strong> If all 9 squares are filled with no winner, it's a draw</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Winning Patterns</h3>
+              <ul>
+                <li>3 in a row (horizontal)</li>
+                <li>3 in a column (vertical)</li>
+                <li>3 diagonal across the board</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Tips for Winning</h3>
+              <ul>
+                <li>✓ Start in the center or corners for strategic advantage</li>
+                <li>✓ Block your opponent's potential winning moves</li>
+                <li>✓ Create multiple winning opportunities</li>
+                <li>✓ Control the center and corners early</li>
+              </ul>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="close-help-button"
+              onClick={() => setShowHelp(false)}
+            >
+              Close
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
 
       <div className="game-info">
         {winner ? (

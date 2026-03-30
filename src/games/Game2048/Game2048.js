@@ -8,6 +8,7 @@ const Game2048 = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [won, setWon] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
   const { updateScore } = useContext(ScoreContext);
 
   useEffect(() => {
@@ -187,7 +188,75 @@ const Game2048 = () => {
       transition={{ duration: 0.5 }}
       className="game-2048-container"
     >
-      <h1 className="game-title">2048</h1>
+      <div className="game-header">
+        <h1 className="game-title">2048</h1>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="help-button"
+          onClick={() => setShowHelp(!showHelp)}
+        >
+          ?
+        </motion.button>
+      </div>
+
+      {showHelp && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="help-modal"
+        >
+          <div className="help-content">
+            <h2>2048 - How to Play</h2>
+            
+            <div className="help-section">
+              <h3>About the Game</h3>
+              <p>Slide tiles on a 4x4 grid to combine numbers and reach 2048! When two tiles with the same number touch, they merge into one.</p>
+            </div>
+
+            <div className="help-section">
+              <h3>How to Play</h3>
+              <ul>
+                <li><strong>Use Arrow Keys:</strong> Press Up, Down, Left, or Right to move tiles</li>
+                <li><strong>Combine Tiles:</strong> Two tiles with the same number merge when they touch</li>
+                <li><strong>New Tiles Appear:</strong> A random tile (2 or 4) appears after each move</li>
+                <li><strong>Build Up:</strong> Keep combining to create larger numbers</li>
+                <li><strong>Reach 2048:</strong> Combine tiles to reach the 2048 tile to win</li>
+                <li><strong>Game Over:</strong> When no moves are possible, the game ends</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Scoring Strategy</h3>
+              <ul>
+                <li>Each merge creates score based on the resulting tile value</li>
+                <li>Your score is the sum of all merged tiles</li>
+                <li>Higher tiles = higher points</li>
+              </ul>
+            </div>
+
+            <div className="help-section">
+              <h3>Tips for Winning</h3>
+              <ul>
+                <li>✓ Plan multiple moves ahead</li>
+                <li>✓ Keep your high-value tiles in corners</li>
+                <li>✓ Avoid filling all four sides early</li>
+                <li>✓ Work systematically, one direction at a time</li>
+                <li>✓ Try to keep one side (corner) empty for flexibility</li>
+              </ul>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="close-help-button"
+              onClick={() => setShowHelp(false)}
+            >
+              Close
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
 
       <div className="game-info">
         <div className="score-box">
