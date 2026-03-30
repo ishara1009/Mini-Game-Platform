@@ -2,6 +2,17 @@
 
 A modern, responsive mini game platform built with React.js, featuring interactive games with smooth animations and score tracking.
 
+## Gallery
+
+![Game 1](src/images/1.png)
+![Game 2](src/images/2.png)
+![Game 3](src/images/3.png)
+![Game 4](src/images/4.png)
+![Game 5](src/images/5.png)
+![Game 6](src/images/6.png)
+![Game 7](src/images/7.png)
+![Game 8](src/images/8.png)
+
 ## Games Included
 
 - **Tic Tac Toe**: Classic 2-player strategy game with winner detection and board highlighting
